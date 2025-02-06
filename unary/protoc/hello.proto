@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package hello;
+
+option go_package = "/";  // place where auto generated files will be stored
+
+message HelloRequest {
+    string SomeString = 1;
+}
+
+message HelloResponse {
+    string Reply = 1;
+}
+
+service Example {
+    rpc ServerReply (HelloRequest) returns (HelloResponse);
+    rpc NewReply (HelloRequest) returns (HelloResponse) ;
+}
+
