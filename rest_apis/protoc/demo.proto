@@ -1,0 +1,24 @@
+syntax = "proto3";
+package demo;
+
+option go_package = "/";
+
+message AnshResposne{
+    string data = 1;
+    int32 age = 2;
+    int32 height = 3;
+    int32 marks = 4;
+    bool isResultDeclared = 5;
+}
+
+message RonakReply{
+    string data = 1;
+    int32 age = 2;
+    int32 height = 3;
+    int32 marks = 4;
+    bool isResultDeclared = 5;
+}
+
+service chat{
+    rpc StartChat (AnshResposne) returns (RonakReply){};
+}

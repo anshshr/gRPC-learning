@@ -11,7 +11,7 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
-type server struct {
+type exampleServer struct {
 	proto.UnimplementedExampleServer
 }
 
@@ -25,7 +25,7 @@ func main() {
 	}
 
 	srv := grpc.NewServer()
-	proto.RegisterExampleServer(srv , &server{})
+	proto.RegisterExampleServer(srv , &exampleServer{})
 
 	reflection.Register(srv)
 
@@ -38,7 +38,7 @@ func main() {
 }
 
 
-func (s *server) ServerReply(c context.Context, req *proto.HelloRequest) (*proto.HelloResponse, error){
+func (s *exampleServer) ServerReply(c context.Context, req *proto.HelloRequest) (*proto.HelloResponse, error){
 	fmt.Println("receive reqiest from the client" , req.SomeString)
 	fmt.Println("hello from thr server")
 	return &proto.HelloResponse{} , errors.New("")
